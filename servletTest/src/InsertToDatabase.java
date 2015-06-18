@@ -2,7 +2,7 @@
 import java.sql.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import com.oreilly.servlet.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -76,12 +76,13 @@ public class InsertToDatabase extends HttpServlet {
 			{
 				out.printf("%-8s",result.getString("id"));
 				out.printf("%-20s",result.getString("name"));
-				out.printf("%-15s",result.getString("experincet"));
+				out.printf("%-15s",result.getString("experince"));
 				System.out.println("");
 				
 			}
 			stat2.close();
 			con.close();
+			MultipartRequest m =new MultipartRequest(request, "C:/Users/Naval/Desktop/uploaded");
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
